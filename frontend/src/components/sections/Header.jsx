@@ -15,6 +15,10 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const openBooking = () => {
+    window.open('https://tally.so/r/3y5Dgg', '_blank');
+  };
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -82,7 +86,7 @@ export const Header = () => {
               <Button 
                 variant={isScrolled ? "accent" : "hero"}
                 size="default"
-                onClick={() => scrollToSection('book')}
+                onClick={openBooking}
               >
                 Book Now
               </Button>
@@ -128,7 +132,7 @@ export const Header = () => {
                   variant="accent"
                   size="lg"
                   className="w-full"
-                  onClick={() => scrollToSection('book')}
+                  onClick={openBooking}
                 >
                   Book Now
                 </Button>
