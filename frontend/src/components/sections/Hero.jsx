@@ -29,10 +29,13 @@ export const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background - solid black with image overlay */}
       <div className="absolute inset-0 bg-black">
-        <img
+        <motion.img
           src="https://images.pexels.com/photos/6872577/pexels-photo-6872577.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Professional car detailing"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
         />
       </div>
 
