@@ -28,6 +28,14 @@ export const Gallery = () => {
     {
       src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/bujs7k30_o%20%282%29.jpg",
       alt: "Professional wash result"
+    },
+    {
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/52ma35jq_o%20%281%29.jpg",
+      alt: "Car detailing showcase"
+    },
+    {
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/e9ft2k2l_IMG_3644%20%282%29.jpeg",
+      alt: "Interior cleaning result"
     }
   ];
 

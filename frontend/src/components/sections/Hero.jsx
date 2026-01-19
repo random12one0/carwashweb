@@ -34,7 +34,7 @@ export const Hero = () => {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
-          src="https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/moauhmq5_o%20%285%29.jpg"
+          src="https://images.pexels.com/photos/6872577/pexels-photo-6872577.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Professional car detailing"
           className="w-full h-full object-cover"
         />
