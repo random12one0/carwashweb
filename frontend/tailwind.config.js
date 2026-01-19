@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                display: ['Playfair Display', 'Georgia', 'serif'],
+                display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                 body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             },
             borderRadius: {
