@@ -56,7 +56,7 @@ export const Header = () => {
               <span className={`font-semibold text-lg tracking-tight transition-colors duration-300 ${
                 isScrolled ? 'text-foreground' : 'text-white'
               }`}>
-                Andrew's Auto
+                Andrew&apos;s Auto
               </span>
             </motion.div>
 

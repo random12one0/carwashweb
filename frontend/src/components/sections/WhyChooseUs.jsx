@@ -32,7 +32,7 @@ export const WhyChooseUs = () => {
         <FadeUp>
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl sm:text-4xl font-semibold mb-4">
-              Why Choose Andrew's Auto
+              Why Choose Andrew&apos;s Auto
             </h2>
             <p className="text-primary-foreground/70 text-lg max-w-xl mx-auto">
               Dedicated to providing the best car care experience in Lakewood
