@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,11 +54,6 @@ export const Header = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                isScrolled ? 'bg-accent' : 'bg-accent'
-              }`}>
-                <Sparkles className="w-4 h-4 text-accent-foreground" />
-              </div>
               <span className="font-semibold text-lg tracking-tight text-white">
                 Andrew&apos;s Auto
               </span>

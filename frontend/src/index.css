@@ -21,28 +21,28 @@ body {
 @layer base {
     :root {
         /* Core Colors - Darker theme */
-        --background: 220 15% 94%;
-        --foreground: 220 14% 8%;
+        --background: 220 12% 90%;
+        --foreground: 220 14% 6%;
         
-        /* Card surfaces - darker off-white */
-        --card: 210 18% 92%;
-        --card-foreground: 220 14% 8%;
+        /* Card surfaces - darker */
+        --card: 210 14% 88%;
+        --card-foreground: 220 14% 6%;
         
         /* Popover */
-        --popover: 220 15% 96%;
-        --popover-foreground: 220 14% 8%;
+        --popover: 220 12% 92%;
+        --popover-foreground: 220 14% 6%;
         
-        /* Primary - Even darker slate */
-        --primary: 220 18% 12%;
+        /* Primary - Dark slate */
+        --primary: 220 18% 10%;
         --primary-foreground: 0 0% 98%;
         
         /* Secondary - Darker neutral gray */
-        --secondary: 220 14% 88%;
-        --secondary-foreground: 220 14% 15%;
+        --secondary: 220 12% 82%;
+        --secondary-foreground: 220 14% 12%;
         
         /* Muted - For subtle backgrounds */
-        --muted: 220 14% 88%;
-        --muted-foreground: 220 10% 35%;
+        --muted: 220 12% 82%;
+        --muted-foreground: 220 10% 30%;
         
         /* Accent - Soft blue for CTAs and highlights */
         --accent: 213 94% 48%;
@@ -57,8 +57,8 @@ body {
         --success-foreground: 0 0% 100%;
         
         /* Borders & Input */
-        --border: 220 13% 82%;
-        --input: 220 13% 82%;
+        --border: 220 12% 75%;
+        --input: 220 12% 75%;
         --ring: 213 94% 48%;
         
         /* Chart colors */
