@@ -19,23 +19,27 @@ export const Hero = () => {
     }
   };
 
-  const openBooking = () => {
-    window.open('https://tally.so/r/3y5Dgg', '_blank');
+  const scrollToBook = () => {
+    const element = document.getElementById('book');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Darker Overlay */}
       <div className="absolute inset-0">
         <motion.img
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
-          src="https://images.pexels.com/photos/6872577/pexels-photo-6872577.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/moauhmq5_o%20%285%29.jpg"
           alt="Professional car detailing"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        {/* Darker overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/85" />
       </div>
 
       {/* Content */}
@@ -45,7 +49,7 @@ export const Hero = () => {
           <HeroTextReveal delay={0.2}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-sm text-white/90 font-medium">California</span>
+              <span className="text-sm text-white/90 font-medium">Lakewood, California</span>
             </div>
           </HeroTextReveal>
 
@@ -60,7 +64,7 @@ export const Hero = () => {
 
           {/* Subheadline */}
           <HeroTextReveal delay={0.6}>
-            <p className="text-lg sm:text-xl text-white/75 leading-relaxed mb-4 max-w-xl">
+            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-4 max-w-xl">
               Affordable, honest detailing services brought directly to your location. 
               Quality results without the dealership prices.
             </p>
@@ -80,7 +84,7 @@ export const Hero = () => {
               <Button 
                 variant="hero" 
                 size="xl"
-                onClick={openBooking}
+                onClick={scrollToBook}
               >
                 Book Appointment
               </Button>

@@ -1,13 +1,51 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
 import { Check, Sparkles, Clock } from 'lucide-react';
 
-const ServiceCard = ({ title, price, duration, features }) => {
+const ServiceCard = ({ title, price, duration, features, isPremium = false }) => {
   return (
-    <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card">
+    <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 ${
+      isPremium ? 'border-accent/30 bg-card' : 'bg-card'
+    }`}>
+      {isPremium && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute -inset-[100%] opacity-[0.03]"
+            style={{
+              background: 'linear-gradient(90deg, transparent 0%, hsl(var(--accent)) 50%, transparent 100%)',
+            }}
+            animate={{
+              x: ['0%', '200%'],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </div>
+      )}
       <CardHeader className="pb-4">
-        <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
+          {isPremium && (
+            <motion.span 
+              className="text-xs font-medium text-accent px-2 py-0.5 rounded-full bg-accent/10"
+              animate={{ 
+                opacity: [0.7, 1, 0.7],
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              Premium
+            </motion.span>
+          )}
+        </div>
         <div className="flex items-baseline gap-2 mt-2">
           <span className="text-3xl font-bold text-foreground">{price}</span>
         </div>
@@ -43,7 +81,8 @@ export const Services = () => {
         "Full interior vacuum",
         "Light dash & door wipe",
         "Trash removal"
-      ]
+      ],
+      isPremium: false
     },
     {
       title: "Interior Deep Clean",
@@ -56,7 +95,8 @@ export const Services = () => {
         "Carpet cleaning",
         "Stain treatment as needed",
         "Interior glass cleaned"
-      ]
+      ],
+      isPremium: true
     }
   ];
 
@@ -70,7 +110,8 @@ export const Services = () => {
         "Foam pre-soak",
         "Hand wash",
         "Rinse & dry"
-      ]
+      ],
+      isPremium: false
     },
     {
       title: "Exterior Detail",
@@ -84,12 +125,13 @@ export const Services = () => {
         "Trim cleaned & darkened",
         "Exterior windows cleaned",
         "Headlight defogging"
-      ]
+      ],
+      isPremium: true
     }
   ];
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-gradient-to-b from-background to-secondary/30">
+    <section id="services" className="py-24 lg:py-32 bg-gradient-to-b from-background to-secondary/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <FadeUp>

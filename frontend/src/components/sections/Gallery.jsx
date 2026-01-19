@@ -7,15 +7,27 @@ export const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
 
-  // Using only the real work images from the original site
+  // Using user's uploaded photos
   const images = [
     {
-      src: "https://customer-assets.emergentagent.com/job_detailing-on-wheels-1/artifacts/x022r8h6_IMG_3644%20%282%29.jpeg",
-      alt: "Professional interior detailing result"
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/v7a2uftf_o%20%286%29.jpg",
+      alt: "Professional car detailing work"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_detailing-on-wheels-1/artifacts/s5yw867z_348s%20%283%29.jpg",
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/moauhmq5_o%20%285%29.jpg",
+      alt: "Auto cleaning service"
+    },
+    {
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/3mnhi23w_o%20%284%29.jpg",
+      alt: "Interior detailing result"
+    },
+    {
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/uweeggsh_o%20%283%29.jpg",
       alt: "Exterior detailing showcase"
+    },
+    {
+      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/bujs7k30_o%20%282%29.jpg",
+      alt: "Professional wash result"
     }
   ];
 
@@ -28,7 +40,7 @@ export const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-secondary/30">
+    <section id="gallery" className="py-24 lg:py-32 bg-secondary/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp>
           <div className="text-center mb-12">

@@ -7,6 +7,10 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const openBooking = () => {
+    window.open('https://tally.so/r/3y5Dgg', '_blank');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -14,10 +18,6 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const openBooking = () => {
-    window.open('https://tally.so/r/3y5Dgg', '_blank');
-  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -42,7 +42,7 @@ export const Header = () => {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'glass border-b border-border/50 shadow-sm' 
+            ? 'bg-primary shadow-lg' 
             : 'bg-transparent'
         }`}
       >
@@ -54,12 +54,12 @@ export const Header = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                isScrolled ? 'bg-accent' : 'bg-accent'
+              }`}>
                 <Sparkles className="w-4 h-4 text-accent-foreground" />
               </div>
-              <span className={`font-semibold text-lg tracking-tight transition-colors duration-300 ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}>
+              <span className="font-semibold text-lg tracking-tight text-white">
                 Andrew&apos;s Auto
               </span>
             </motion.div>
@@ -72,7 +72,7 @@ export const Header = () => {
                   onClick={() => scrollToSection(link.id)}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
                     isScrolled 
-                      ? 'text-muted-foreground hover:text-foreground hover:bg-secondary' 
+                      ? 'text-white/80 hover:text-white hover:bg-white/10' 
                       : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -95,11 +95,7 @@ export const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${
-                isScrolled 
-                  ? 'text-foreground hover:bg-secondary' 
-                  : 'text-white hover:bg-white/10'
-              }`}
+              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -115,14 +111,14 @@ export const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 glass border-b border-border/50 shadow-lg md:hidden"
+            className="fixed inset-x-0 top-16 z-40 bg-primary border-b border-white/10 shadow-lg md:hidden"
           >
             <nav className="flex flex-col p-4 space-y-1">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="px-4 py-3 text-left text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors duration-200"
+                  className="px-4 py-3 text-left text-sm font-medium text-white/90 hover:bg-white/10 rounded-lg transition-colors duration-200"
                 >
                   {link.label}
                 </button>
