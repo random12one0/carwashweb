@@ -1,21 +1,19 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
-import { MapPin, Car, Truck, Phone } from 'lucide-react';
+import { MapPin, Car, Truck } from 'lucide-react';
 
 export const ServiceOptions = () => {
   const options = [
     {
       icon: Truck,
       title: "Mobile Service",
-      description: "I'll come to your location anywhere in Lakewood. Travel outside Lakewood may include an additional fee.",
-      highlight: "Most Popular"
+      description: "I'll come to your location anywhere in California. Travel outside the local area may include an additional fee."
     },
     {
       icon: Car,
       title: "Drop-Off Option",
-      description: "Prefer to bring your vehicle to me? That works too. Contact to schedule a drop-off appointment.",
-      highlight: null
+      description: "Prefer to bring your vehicle to me? That works too. Contact to schedule a drop-off appointment."
     }
   ];
 
@@ -37,13 +35,6 @@ export const ServiceOptions = () => {
           {options.map((option, index) => (
             <StaggerItem key={index}>
               <Card className="relative h-full bg-card border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-elegant">
-                {option.highlight && (
-                  <div className="absolute -top-3 left-6">
-                    <span className="px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full">
-                      {option.highlight}
-                    </span>
-                  </div>
-                )}
                 <CardContent className="p-8">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
                     <option.icon className="w-6 h-6 text-accent" />
@@ -65,7 +56,7 @@ export const ServiceOptions = () => {
           <div className="flex justify-center mt-12">
             <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-secondary text-secondary-foreground">
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">Serving Lakewood and surrounding areas</span>
+              <span className="text-sm font-medium">Serving California</span>
             </div>
           </div>
         </FadeUp>

@@ -6,48 +6,45 @@ export const WhyChooseUs = () => {
   const reasons = [
     {
       icon: Heart,
-      title: "Local Lakewood Service",
-      description: "Supporting your local community with personalized, reliable car care."
+      title: "Local Service",
+      description: "Supporting your community with personalized care."
     },
     {
       icon: DollarSign,
-      title: "No Rush, No Upsells",
-      description: "Honest work at honest prices. I take my time to do it right."
+      title: "No Upsells",
+      description: "Honest work at honest prices."
     },
     {
       icon: Shield,
       title: "Quality Guaranteed",
-      description: "Meticulous attention to detail on every vehicle, every time."
+      description: "Meticulous attention to detail."
     },
     {
       icon: Clock,
       title: "Flexible Scheduling",
-      description: "Book at your convenience. Mobile service comes to you."
+      description: "Mobile service comes to you."
     }
   ];
 
   return (
-    <section id="why-us" className="py-24 lg:py-32 bg-primary text-primary-foreground">
+    <section id="why-us" className="py-16 lg:py-20 bg-primary text-primary-foreground">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp>
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mb-4">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold mb-2">
               Why Choose Andrew&apos;s Auto
             </h2>
-            <p className="text-primary-foreground/70 text-lg max-w-xl mx-auto">
-              Dedicated to providing the best car care experience in Lakewood
-            </p>
           </div>
         </FadeUp>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" staggerDelay={0.1}>
           {reasons.map((reason, index) => (
             <StaggerItem key={index}>
               <div className="text-center group">
-                <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:scale-110">
-                  <reason.icon className="w-7 h-7 text-white" />
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:scale-110">
+                  <reason.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-base font-semibold text-white mb-1">
                   {reason.title}
                 </h3>
                 <p className="text-primary-foreground/70 text-sm leading-relaxed">

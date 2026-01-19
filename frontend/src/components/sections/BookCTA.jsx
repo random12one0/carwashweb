@@ -2,7 +2,7 @@ import React from 'react';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, ExternalLink } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 export const BookCTA = () => {
   const paymentMethods = [
@@ -12,6 +12,10 @@ export const BookCTA = () => {
     { name: 'Venmo', icon: '✓' },
     { name: 'PayPal', icon: '🅿️' },
   ];
+
+  const openBooking = () => {
+    window.open('https://tally.so/r/3y5Dgg', '_blank');
+  };
 
   return (
     <section id="book" className="py-24 lg:py-32 bg-gradient-to-b from-secondary/30 to-background">
@@ -35,17 +39,9 @@ export const BookCTA = () => {
                   variant="accent" 
                   size="xl" 
                   className="mb-10 shadow-lg hover:shadow-xl"
-                  asChild
+                  onClick={openBooking}
                 >
-                  <a 
-                    href="https://auto.andrew.us.kg/#book" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2"
-                  >
-                    Book Your Appointment
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  Book Your Appointment
                 </Button>
 
                 {/* Payment Methods */}

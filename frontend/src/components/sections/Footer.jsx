@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Mail, Phone, MapPin } from 'lucide-react';
+import { Sparkles, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,7 +26,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Professional mobile car wash and interior cleaning services in Lakewood, Colorado. 
+              Professional mobile car wash and interior cleaning services in California. 
               Quality results, honest prices.
             </p>
           </div>
@@ -55,13 +55,35 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Service Area</h4>
+            <h4 className="font-semibold text-white mb-4">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-start gap-3">
+              <a 
+                href="tel:562-310-1075" 
+                className="flex items-center gap-3 text-primary-foreground/70 hover:text-white transition-colors duration-200"
+              >
+                <Phone className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm">562-310-1075</span>
+              </a>
+              <a 
+                href="mailto:andrewswashing@gmail.com" 
+                className="flex items-center gap-3 text-primary-foreground/70 hover:text-white transition-colors duration-200"
+              >
+                <Mail className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm">andrewswashing@gmail.com</span>
+              </a>
+              <a 
+                href="https://www.yelp.com/biz/andrews-car-washing-lakewood-3" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/70 hover:text-white transition-colors duration-200"
+              >
+                <ExternalLink className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm">View on Yelp</span>
+              </a>
+              <div className="flex items-start gap-3 pt-2">
                 <MapPin className="w-5 h-5 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-primary-foreground/70">
-                  Lakewood, Colorado<br />
-                  <span className="text-primary-foreground/50">& surrounding areas</span>
+                  California
                 </span>
               </div>
             </div>
@@ -73,9 +95,6 @@ export const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/50">
               © {currentYear} Andrew&apos;s Auto Cleaning. All rights reserved.
-            </p>
-            <p className="text-sm text-primary-foreground/50">
-              Supporting local Lakewood businesses
             </p>
           </div>
         </div>

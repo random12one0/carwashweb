@@ -12,11 +12,15 @@ export const Hero = () => {
     }
   };
 
-  const scrollToBook = () => {
-    const element = document.getElementById('book');
+  const scrollToFAQ = () => {
+    const element = document.getElementById('faq');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const openBooking = () => {
+    window.open('https://tally.so/r/3y5Dgg', '_blank');
   };
 
   return (
@@ -41,7 +45,7 @@ export const Hero = () => {
           <HeroTextReveal delay={0.2}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-sm text-white/90 font-medium">Lakewood, Colorado</span>
+              <span className="text-sm text-white/90 font-medium">California</span>
             </div>
           </HeroTextReveal>
 
@@ -76,7 +80,7 @@ export const Hero = () => {
               <Button 
                 variant="hero" 
                 size="xl"
-                onClick={scrollToBook}
+                onClick={openBooking}
               >
                 Book Appointment
               </Button>
@@ -86,6 +90,13 @@ export const Hero = () => {
                 onClick={scrollToServices}
               >
                 View Services
+              </Button>
+              <Button 
+                variant="hero-outline" 
+                size="xl"
+                onClick={scrollToFAQ}
+              >
+                FAQ
               </Button>
             </div>
           </HeroTextReveal>

@@ -1,21 +1,11 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
-import { Check, Sparkles, Star, Clock } from 'lucide-react';
+import { Check, Sparkles, Clock } from 'lucide-react';
 
-const ServiceCard = ({ title, price, duration, features, isPremium = false }) => {
+const ServiceCard = ({ title, price, duration, features }) => {
   return (
-    <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 ${
-      isPremium ? 'border-accent/30 bg-gradient-to-br from-card to-accent/5' : 'bg-card'
-    }`}>
-      {isPremium && (
-        <div className="absolute top-4 right-4">
-          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
-            <Star className="w-3 h-3 fill-current" />
-            Popular
-          </div>
-        </div>
-      )}
+    <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card">
       <CardHeader className="pb-4">
         <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
         <div className="flex items-baseline gap-2 mt-2">
@@ -53,8 +43,7 @@ export const Services = () => {
         "Full interior vacuum",
         "Light dash & door wipe",
         "Trash removal"
-      ],
-      isPremium: false
+      ]
     },
     {
       title: "Interior Deep Clean",
@@ -67,8 +56,7 @@ export const Services = () => {
         "Carpet cleaning",
         "Stain treatment as needed",
         "Interior glass cleaned"
-      ],
-      isPremium: true
+      ]
     }
   ];
 
@@ -82,8 +70,7 @@ export const Services = () => {
         "Foam pre-soak",
         "Hand wash",
         "Rinse & dry"
-      ],
-      isPremium: false
+      ]
     },
     {
       title: "Exterior Detail",
@@ -97,8 +84,7 @@ export const Services = () => {
         "Trim cleaned & darkened",
         "Exterior windows cleaned",
         "Headlight defogging"
-      ],
-      isPremium: true
+      ]
     }
   ];
 

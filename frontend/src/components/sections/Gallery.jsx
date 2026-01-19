@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FadeUp, ImageReveal } from '@/components/animations/AnimationWrappers';
+import { FadeUp } from '@/components/animations/AnimationWrappers';
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
 
+  // Using only the real work images from the original site
   const images = [
     {
       src: "https://customer-assets.emergentagent.com/job_detailing-on-wheels-1/artifacts/x022r8h6_IMG_3644%20%282%29.jpeg",
@@ -16,18 +16,6 @@ export const Gallery = () => {
     {
       src: "https://customer-assets.emergentagent.com/job_detailing-on-wheels-1/artifacts/s5yw867z_348s%20%283%29.jpg",
       alt: "Exterior detailing showcase"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1620584899131-a5ff5f8fbb03?auto=format&fit=crop&w=800&q=80",
-      alt: "Professional steering wheel cleaning"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1708805282683-50a060eba80f?auto=format&fit=crop&w=800&q=80",
-      alt: "Tire and wheel detailing"
-    },
-    {
-      src: "https://images.pexels.com/photos/6873174/pexels-photo-6873174.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Premium car detailing service"
     }
   ];
 
