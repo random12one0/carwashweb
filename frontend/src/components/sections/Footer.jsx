@@ -26,7 +26,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Professional mobile car wash and interior cleaning services in California. 
+              Professional mobile car wash and interior cleaning services in Lakewood, California. 
               Quality results, honest prices.
             </p>
           </div>
@@ -83,7 +83,7 @@ export const Footer = () => {
               <div className="flex items-start gap-3 pt-2">
                 <MapPin className="w-5 h-5 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-primary-foreground/70">
-                  California
+                  Lakewood, California
                 </span>
               </div>
             </div>

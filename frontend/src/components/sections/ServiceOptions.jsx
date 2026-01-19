@@ -8,7 +8,7 @@ export const ServiceOptions = () => {
     {
       icon: Truck,
       title: "Mobile Service",
-      description: "I'll come to your location anywhere in California. Travel outside the local area may include an additional fee."
+      description: "I'll come to your location anywhere in Lakewood, California. Travel outside the local area may include an additional fee."
     },
     {
       icon: Car,
@@ -56,7 +56,7 @@ export const ServiceOptions = () => {
           <div className="flex justify-center mt-12">
             <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-secondary text-secondary-foreground">
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">Serving California</span>
+              <span className="text-sm font-medium">Serving Lakewood, California</span>
             </div>
           </div>
         </FadeUp>

@@ -20,29 +20,29 @@ body {
 
 @layer base {
     :root {
-        /* Core Colors - Apple-inspired neutrals with a touch of warmth */
-        --background: 0 0% 100%;
+        /* Core Colors - Slightly darker for more contrast */
+        --background: 220 15% 97%;
         --foreground: 220 14% 10%;
         
         /* Card surfaces - subtle off-white */
-        --card: 210 20% 98%;
+        --card: 210 20% 96%;
         --card-foreground: 220 14% 10%;
         
         /* Popover */
         --popover: 0 0% 100%;
         --popover-foreground: 220 14% 10%;
         
-        /* Primary - Sophisticated slate for elegance */
-        --primary: 220 13% 18%;
+        /* Primary - Sophisticated dark slate */
+        --primary: 220 15% 15%;
         --primary-foreground: 0 0% 98%;
         
         /* Secondary - Soft neutral gray */
-        --secondary: 220 14% 96%;
+        --secondary: 220 14% 92%;
         --secondary-foreground: 220 14% 20%;
         
         /* Muted - For subtle backgrounds */
-        --muted: 220 14% 96%;
-        --muted-foreground: 220 10% 46%;
+        --muted: 220 14% 92%;
+        --muted-foreground: 220 10% 40%;
         
         /* Accent - Soft blue for CTAs and highlights */
         --accent: 213 94% 48%;
@@ -57,8 +57,8 @@ body {
         --success-foreground: 0 0% 100%;
         
         /* Borders & Input */
-        --border: 220 13% 91%;
-        --input: 220 13% 91%;
+        --border: 220 13% 88%;
+        --input: 220 13% 88%;
         --ring: 213 94% 48%;
         
         /* Chart colors */
