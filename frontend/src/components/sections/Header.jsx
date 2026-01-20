@@ -55,7 +55,7 @@ export const Header = () => {
               transition={{ duration: 0.2 }}
             >
               <span className="font-semibold text-lg tracking-tight text-white">
-                Andrew&apos;s Auto
+                Andrew&apos;s Car Wash & Detail
               </span>
             </motion.div>
 
