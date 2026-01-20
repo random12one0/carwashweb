@@ -124,19 +124,15 @@ export const BrandAssets = () => {
                     <div className="grid grid-cols-2 gap-3 text-sm text-white/80">
                       <div>
                         <p className="font-medium text-white mb-2">Interior</p>
-                        <p>• Full Vacuum</p>
-                        <p>• Dash & Door Wipe</p>
-                        <p>• Carpet Cleaning</p>
-                        <p>• Stain Treatment</p>
-                        <p>• Glass Cleaning</p>
+                        <p>• Vacuuming</p>
+                        <p>• Surface Cleaning</p>
+                        <p>• Stain Removal</p>
                       </div>
                       <div>
                         <p className="font-medium text-white mb-2">Exterior</p>
                         <p>• Hand Wash</p>
-                        <p>• Tire & Wheel Clean</p>
-                        <p>• Bug Removal</p>
-                        <p>• Trim Darkening</p>
-                        <p>• Headlight Restore</p>
+                        <p>• Wheels & Tires</p>
+                        <p>• Trim & Glass</p>
                       </div>
                     </div>
                   </div>
@@ -199,19 +195,15 @@ export const BrandAssets = () => {
                     <div className="grid grid-cols-2 gap-3 text-sm text-white/80">
                       <div>
                         <p className="font-medium text-white mb-2">Interior</p>
-                        <p>• Full Vacuum</p>
-                        <p>• Dash & Door Wipe</p>
-                        <p>• Carpet Cleaning</p>
-                        <p>• Stain Treatment</p>
-                        <p>• Glass Cleaning</p>
+                        <p>• Vacuuming</p>
+                        <p>• Surface Cleaning</p>
+                        <p>• Stain Removal</p>
                       </div>
                       <div>
                         <p className="font-medium text-white mb-2">Exterior</p>
                         <p>• Hand Wash</p>
-                        <p>• Tire & Wheel Clean</p>
-                        <p>• Bug Removal</p>
-                        <p>• Trim Darkening</p>
-                        <p>• Headlight Restore</p>
+                        <p>• Wheels & Tires</p>
+                        <p>• Trim & Glass</p>
                       </div>
                     </div>
                   </div>
