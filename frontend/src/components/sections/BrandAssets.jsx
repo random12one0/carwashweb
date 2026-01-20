@@ -1,0 +1,147 @@
+import React from 'react';
+import { FadeUp } from '@/components/animations/AnimationWrappers';
+import { Phone, Mail, MapPin, Droplets } from 'lucide-react';
+
+export const BrandAssets = () => {
+  return (
+    <section id="brand-assets" className="py-24 lg:py-32 bg-secondary/50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FadeUp>
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-semibold text-foreground mb-4">
+              Brand Assets
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              Logo and promotional flyer
+            </p>
+          </div>
+        </FadeUp>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Logo */}
+          <FadeUp delay={0.1}>
+            <div className="bg-card rounded-2xl p-8 shadow-card">
+              <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Logo</h3>
+              
+              {/* Logo Design */}
+              <div className="flex flex-col items-center justify-center p-8 bg-primary rounded-xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+                    <Droplets className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <h1 className="text-2xl font-bold text-white tracking-tight leading-none">
+                      Andrews
+                    </h1>
+                    <p className="text-sm font-medium text-white/80 tracking-wide">
+                      CAR WASH & DETAIL
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Light version */}
+              <div className="flex flex-col items-center justify-center p-8 bg-white rounded-xl mt-4 border border-border">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+                    <Droplets className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <h1 className="text-2xl font-bold text-primary tracking-tight leading-none">
+                      Andrews
+                    </h1>
+                    <p className="text-sm font-medium text-primary/70 tracking-wide">
+                      CAR WASH & DETAIL
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Flyer */}
+          <FadeUp delay={0.2}>
+            <div className="bg-card rounded-2xl p-8 shadow-card">
+              <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Promotional Flyer</h3>
+              
+              {/* Flyer Design */}
+              <div className="bg-primary rounded-xl overflow-hidden shadow-lg">
+                {/* Header */}
+                <div className="p-6 text-center border-b border-white/10">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                      <Droplets className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <h1 className="text-xl font-bold text-white tracking-tight leading-none">
+                        Andrews
+                      </h1>
+                      <p className="text-xs font-medium text-white/80 tracking-wide">
+                        CAR WASH & DETAIL
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-white/60 text-sm">Mobile Detailing Services</p>
+                </div>
+
+                {/* Services */}
+                <div className="p-6 border-b border-white/10">
+                  <h3 className="text-white font-semibold text-sm mb-3 text-center">OUR SERVICES</h3>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="text-white/80">
+                      <p className="font-medium text-white">Interior</p>
+                      <p>• Refresh: $10-$15</p>
+                      <p>• Deep Clean: $40-$50</p>
+                    </div>
+                    <div className="text-white/80">
+                      <p className="font-medium text-white">Exterior</p>
+                      <p>• Wash: $10-$20</p>
+                      <p>• Detail: $30-$40</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* QR Code Space */}
+                <div className="p-6 border-b border-white/10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="text-center text-primary/40 text-xs p-2">
+                        <div className="w-16 h-16 border-2 border-dashed border-primary/30 rounded flex items-center justify-center">
+                          QR
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-white/80 text-sm">
+                      <p className="font-semibold text-white mb-1">Scan to Book</p>
+                      <p>Quick & easy online scheduling</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact */}
+                <div className="p-6 bg-black/20">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-white/80">
+                      <Phone className="w-4 h-4 text-accent" />
+                      <span>562-310-1075</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-white/80">
+                      <Mail className="w-4 h-4 text-accent" />
+                      <span>andrewswashing@gmail.com</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-white/80">
+                      <MapPin className="w-4 h-4 text-accent" />
+                      <span>Lakewood, California</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BrandAssets;
