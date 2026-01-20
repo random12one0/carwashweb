@@ -10,7 +10,6 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Gallery from "@/components/sections/Gallery";
 import FAQ from "@/components/sections/FAQ";
 import BookCTA from "@/components/sections/BookCTA";
-import BrandAssets from "@/components/sections/BrandAssets";
 import Footer from "@/components/sections/Footer";
 
 const HomePage = () => {
@@ -25,7 +24,6 @@ const HomePage = () => {
         <Gallery />
         <FAQ />
         <BookCTA />
-        <BrandAssets />
       </main>
       <Footer />
     </div>
