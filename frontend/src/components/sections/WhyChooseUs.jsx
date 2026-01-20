@@ -32,7 +32,7 @@ export const WhyChooseUs = () => {
         <FadeUp>
           <div className="text-center mb-10">
             <h2 className="font-display text-2xl sm:text-3xl font-semibold mb-2">
-              Why Choose Andrew&apos;s Auto
+              Why Choose Andrew&apos;s
             </h2>
           </div>
         </FadeUp>
