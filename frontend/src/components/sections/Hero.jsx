@@ -133,7 +133,7 @@ export const Hero = () => {
           opacity: { duration: 0.5, delay: 1 },
           y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors duration-300"
+        className="absolute bottom-8 inset-x-0 mx-auto w-fit flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors duration-300"
       >
         <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
         <ArrowDown className="w-5 h-5" />

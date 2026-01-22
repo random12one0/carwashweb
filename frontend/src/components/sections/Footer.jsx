@@ -22,7 +22,7 @@ export const Footer = () => {
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <span className="font-semibold text-lg tracking-tight">
-                Andrew&apos;s Car Wash &amp; Detail
+                Andrew&apos;s Auto Cleaning
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
@@ -94,7 +94,7 @@ export const Footer = () => {
         <div className="border-t border-white/10 mt-12 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/50">
-              © {currentYear} Andrew&apos;s Car Wash &amp; Detail. All rights reserved.
+              © {currentYear} Andrew&apos;s Auto Cleaning. All rights reserved.
             </p>
           </div>
         </div>
