@@ -4,58 +4,46 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
 import { Check, Sparkles, Clock } from 'lucide-react';
 
-const ServiceCard = ({ title, price, duration, features, isPremium = false }) => {
+const ServiceCard = ({ title, tier, price, duration, features, optional }) => {
   return (
-    <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 ${
-      isPremium ? 'border-accent/30 bg-card' : 'bg-card'
-    }`}>
-      {isPremium && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute -inset-[100%] opacity-[0.03]"
-            style={{
-              background: 'linear-gradient(90deg, transparent 0%, hsl(var(--accent)) 50%, transparent 100%)',
-            }}
-            animate={{
-              x: ['0%', '200%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
+    <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card group">
+      {/* Animated shine effect - like enchanted armor */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute -inset-[100%] opacity-0 group-hover:opacity-100"
+          style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+          }}
+          animate={{
+            x: ['0%', '200%'],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      </div>
+      
+      {/* Subtle gradient border on hover */}
+      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background: 'linear-gradient(135deg, rgba(59,130,246,0.1) 0%, transparent 50%, rgba(59,130,246,0.05) 100%)',
+        }}
+      />
+
+      <CardHeader className="pb-4 relative z-10">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-xs font-medium text-accent uppercase tracking-wider">{tier}</span>
         </div>
-      )}
-      <CardHeader className="pb-4">
-        <div className="flex items-center gap-2">
-          <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
-          {isPremium && (
-            <motion.span 
-              className="text-xs font-medium text-accent px-2 py-0.5 rounded-full bg-accent/10"
-              animate={{ 
-                opacity: [0.7, 1, 0.7],
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            >
-              Premium
-            </motion.span>
-          )}
-        </div>
-        <div className="flex items-baseline gap-2 mt-2">
-          <span className="text-3xl font-bold text-foreground">{price}</span>
-        </div>
-        <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-          <Clock className="w-4 h-4" />
-          <span>{duration}</span>
+        <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
+        <div className="flex items-baseline gap-1 mt-2">
+          <span className="text-sm text-muted-foreground">Starting at</span>
+          <span className="text-2xl font-bold text-foreground">${price}</span>
         </div>
       </CardHeader>
-      <CardContent>
-        <ul className="space-y-3">
+      <CardContent className="relative z-10">
+        <ul className="space-y-2.5">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-3">
               <div className="mt-0.5 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
@@ -64,6 +52,14 @@ const ServiceCard = ({ title, price, duration, features, isPremium = false }) =>
               <span className="text-sm text-muted-foreground">{feature}</span>
             </li>
           ))}
+          {optional && (
+            <li className="flex items-start gap-3 pt-1">
+              <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-3 h-3 text-accent" />
+              </div>
+              <span className="text-sm text-muted-foreground italic">{optional}</span>
+            </li>
+          )}
         </ul>
       </CardContent>
     </Card>
@@ -71,62 +67,71 @@ const ServiceCard = ({ title, price, duration, features, isPremium = false }) =>
 };
 
 export const Services = () => {
-  const interiorServices = [
+  const exteriorServices = [
     {
-      title: "Interior Refresh",
-      subtitle: "Basic",
-      price: "$10–$15",
-      duration: "1–1.5 hours",
+      title: "Basic Wash",
+      tier: "Exterior Tier 1",
+      price: "15",
       features: [
-        "Full interior vacuum",
-        "Light dash & door wipe",
-        "Trash removal"
-      ],
-      isPremium: false
+        "Hand wash",
+        "Wheel and tire cleaning",
+        "Exterior window cleaning"
+      ]
     },
     {
-      title: "Interior Deep Clean",
-      subtitle: "Premium",
-      price: "$40–$50",
-      duration: "1.5–2.5 hours",
+      title: "Premium Detail",
+      tier: "Exterior Tier 2",
+      price: "25",
       features: [
-        "Full interior vacuum",
-        "Dash, console & door panels cleaned",
-        "Carpet cleaning",
-        "Stain treatment as needed",
-        "Interior glass cleaned"
-      ],
-      isPremium: true
+        "Pre-wash",
+        "Hand wash",
+        "Wheel and tire cleaning",
+        "Tire shine",
+        "Trim enhancement",
+        "Exterior window cleaning"
+      ]
+    },
+    {
+      title: "Advanced Detail",
+      tier: "Exterior Tier 3",
+      price: "40",
+      features: [
+        "Pre-wash",
+        "Hand wash",
+        "Wheel and tire cleaning",
+        "Tire shine",
+        "Trim enhancement",
+        "Exterior window cleaning",
+        "Headlight clearing",
+        "Exterior protection with hydrophobic finish"
+      ]
     }
   ];
 
-  const exteriorServices = [
+  const interiorServices = [
     {
-      title: "Exterior Wash",
-      subtitle: "Basic",
-      price: "$10–$20",
-      duration: "1–1.5 hours",
+      title: "Basic Interior Refresh",
+      tier: "Interior Tier 1",
+      price: "15",
       features: [
-        "Foam pre-soak",
-        "Hand wash",
-        "Rinse & dry"
+        "Full interior vacuum",
+        "Quick wipe down",
+        "Trash removal"
       ],
-      isPremium: false
+      optional: "Optional: interior scent add-on"
     },
     {
-      title: "Exterior Detail",
-      subtitle: "Premium",
-      price: "$30–$40",
-      duration: "1.5–2.5 hours",
+      title: "Deep Interior Clean",
+      tier: "Interior Tier 2",
+      price: "35",
       features: [
-        "Hand wash",
-        "Tire & wheel cleaning",
-        "Bug removal",
-        "Trim cleaned & darkened",
-        "Exterior windows cleaned",
-        "Headlight defogging"
+        "Full interior vacuum",
+        "Dash, console, door panels, and seat cleaning",
+        "Carpet and upholstery cleaning",
+        "Stain treatment",
+        "Trash removal"
       ],
-      isPremium: true
+      optional: "Optional: interior scent add-on"
     }
   ];
 
@@ -149,15 +154,15 @@ export const Services = () => {
           </div>
         </FadeUp>
 
-        {/* Interior Services */}
+        {/* Exterior Services */}
         <FadeUp delay={0.1}>
           <div className="mb-16">
             <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
               <div className="w-1 h-6 bg-accent rounded-full" />
-              Interior Detailing
+              Exterior Detailing
             </h3>
-            <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-              {interiorServices.map((service, index) => (
+            <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+              {exteriorServices.map((service, index) => (
                 <StaggerItem key={index}>
                   <ServiceCard {...service} />
                 </StaggerItem>
@@ -166,15 +171,15 @@ export const Services = () => {
           </div>
         </FadeUp>
 
-        {/* Exterior Services */}
+        {/* Interior Services */}
         <FadeUp delay={0.2}>
           <div>
             <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
               <div className="w-1 h-6 bg-accent rounded-full" />
-              Exterior Detailing
+              Interior Detailing
             </h3>
             <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-              {exteriorServices.map((service, index) => (
+              {interiorServices.map((service, index) => (
                 <StaggerItem key={index}>
                   <ServiceCard {...service} />
                 </StaggerItem>
