@@ -163,7 +163,7 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
 export const Services = () => {
   const exteriorServices = [
     {
-      title: "Basic Wash",
+      title: "Standard Exterior Wash",
       tier: "Exterior Tier 1",
       price: "15",
       tierLevel: 1,
@@ -174,7 +174,7 @@ export const Services = () => {
       ]
     },
     {
-      title: "Premium Detail",
+      title: "Deluxe Exterior Detail",
       tier: "Exterior Tier 2",
       price: "25",
       tierLevel: 2,
@@ -188,7 +188,7 @@ export const Services = () => {
       ]
     },
     {
-      title: "Advanced Detail",
+      title: "Ultimate Exterior Detail",
       tier: "Exterior Tier 3",
       price: "40",
       tierLevel: 3,
@@ -207,7 +207,7 @@ export const Services = () => {
 
   const interiorServices = [
     {
-      title: "Basic Interior Refresh",
+      title: "Standard Interior Clean",
       tier: "Interior Tier 1",
       price: "15",
       tierLevel: 1,
@@ -219,7 +219,7 @@ export const Services = () => {
       optional: "Optional interior scent add-on"
     },
     {
-      title: "Interior Clean",
+      title: "Deluxe Interior Clean",
       tier: "Interior Tier 2",
       price: "30",
       tierLevel: 2,
@@ -233,7 +233,7 @@ export const Services = () => {
       optional: "Optional interior scent add-on"
     },
     {
-      title: "Deep Interior Clean",
+      title: "Ultimate Interior Clean",
       tier: "Interior Tier 3",
       price: "50",
       tierLevel: 3,
