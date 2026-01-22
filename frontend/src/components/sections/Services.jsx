@@ -5,13 +5,12 @@ import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/A
 import { Check, Sparkles } from 'lucide-react';
 
 const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) => {
-  // tierLevel: 1 = basic (no effects), 2 = premium (border only), 3 = advanced (border + shine + glow)
   const isPremium = tierLevel >= 2;
   const isAdvanced = tierLevel >= 3;
 
   return (
-    <div className="relative">
-      {/* Animated gradient border for premium tiers */}
+    <div className="relative h-full">
+      {/* Tier 2 - Blue animated border */}
       {isPremium && !isAdvanced && (
         <div className="absolute -inset-[1px] rounded-xl overflow-hidden">
           <motion.div
@@ -32,7 +31,7 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
         </div>
       )}
 
-      {/* Advanced tier - gold/purple animated border */}
+      {/* Tier 3 - Gold/purple animated border */}
       {isAdvanced && (
         <div className="absolute -inset-[2px] rounded-xl overflow-hidden">
           <motion.div
@@ -53,12 +52,11 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
         </div>
       )}
 
-      <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card ${isPremium ? 'border-0' : ''}`}>
+      <Card className={`relative h-full overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card ${isPremium ? 'border-0' : ''}`}>
         
-        {/* Minecraft enchantment shine - ONLY on Advanced (Tier 3) - always visible */}
+        {/* Tier 3 - Minecraft enchantment shine */}
         {isAdvanced && (
           <>
-            {/* Multiple diagonal shine lines */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
                 className="absolute w-[200%] h-[200%] -top-1/2 -left-1/2"
@@ -82,7 +80,6 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
                 }}
               />
             </div>
-            {/* Bright shine sweep */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
                 className="absolute h-full w-32"
@@ -100,7 +97,6 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
                 }}
               />
             </div>
-            {/* Subtle glow overlay */}
             <div 
               className="absolute inset-0 pointer-events-none opacity-30"
               style={{
@@ -132,7 +128,7 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
           <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
           <div className="flex items-baseline gap-1 mt-2">
             <span className="text-sm text-muted-foreground">Starting at</span>
-            <span className={`text-2xl font-bold ${isAdvanced ? 'text-foreground' : 'text-foreground'}`}>${price}</span>
+            <span className="text-2xl font-bold text-foreground">${price}</span>
           </div>
         </CardHeader>
         <CardContent className="relative z-10">
@@ -149,8 +145,10 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
             ))}
             {optional && (
               <li className="flex items-start gap-3 pt-1">
-                <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-3 h-3 text-accent" />
+                <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  isAdvanced ? 'bg-amber-500/10' : 'bg-accent/10'
+                }`}>
+                  <Sparkles className={`w-3 h-3 ${isAdvanced ? 'text-amber-500' : 'text-accent'}`} />
                 </div>
                 <span className="text-sm text-muted-foreground italic">{optional}</span>
               </li>
@@ -215,24 +213,40 @@ export const Services = () => {
       tierLevel: 1,
       features: [
         "Full interior vacuum",
-        "Quick wipe down",
+        "Quick wipe-down",
         "Trash removal"
       ],
-      optional: "Optional: interior scent add-on"
+      optional: "Optional interior scent add-on"
     },
     {
-      title: "Deep Interior Clean",
+      title: "Interior Clean",
       tier: "Interior Tier 2",
-      price: "35",
+      price: "30",
       tierLevel: 2,
       features: [
         "Full interior vacuum",
-        "Dash, console, door panels, and seat cleaning",
-        "Carpet and upholstery cleaning",
-        "Stain treatment",
+        "Light interior touch-up cleaning",
+        "Floor mat cleaning",
+        "Interior window cleaning",
         "Trash removal"
       ],
-      optional: "Optional: interior scent add-on"
+      optional: "Optional interior scent add-on"
+    },
+    {
+      title: "Deep Interior Clean",
+      tier: "Interior Tier 3",
+      price: "50",
+      tierLevel: 3,
+      features: [
+        "Full interior vacuum",
+        "Deep cleaning of dash, console, door panels, and seats",
+        "Carpet and upholstery cleaning",
+        "Stain treatment",
+        "Floor mat cleaning",
+        "Interior window cleaning",
+        "Trash removal"
+      ],
+      optional: "Optional interior scent add-on"
     }
   ];
 
@@ -279,7 +293,7 @@ export const Services = () => {
               <div className="w-1 h-6 bg-accent rounded-full" />
               Interior Detailing
             </h3>
-            <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
+            <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
               {interiorServices.map((service, index) => (
                 <StaggerItem key={index}>
                   <ServiceCard {...service} />
