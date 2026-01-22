@@ -2,67 +2,102 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/AnimationWrappers';
-import { Check, Sparkles, Clock } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 
-const ServiceCard = ({ title, tier, price, duration, features, optional }) => {
+const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) => {
+  // tierLevel: 1 = basic (no effects), 2 = premium, 3 = advanced
+  const isPremium = tierLevel >= 2;
+  const isAdvanced = tierLevel >= 3;
+
   return (
-    <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card group">
-      {/* Animated shine effect - like enchanted armor */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -inset-[100%] opacity-0 group-hover:opacity-100"
-          style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
-          }}
-          animate={{
-            x: ['0%', '200%'],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
-      
-      {/* Subtle gradient border on hover */}
-      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{
-          background: 'linear-gradient(135deg, rgba(59,130,246,0.1) 0%, transparent 50%, rgba(59,130,246,0.05) 100%)',
-        }}
-      />
+    <div className="relative">
+      {/* Animated gradient border for premium/advanced tiers */}
+      {isPremium && (
+        <div className="absolute -inset-[1px] rounded-xl overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              background: isAdvanced 
+                ? 'linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6)'
+                : 'linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6, #60a5fa)',
+              backgroundSize: '200% 100%',
+            }}
+            animate={{
+              backgroundPosition: ['0% 0%', '200% 0%'],
+            }}
+            transition={{
+              duration: isAdvanced ? 2 : 3,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </div>
+      )}
 
-      <CardHeader className="pb-4 relative z-10">
-        <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-medium text-accent uppercase tracking-wider">{tier}</span>
-        </div>
-        <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
-        <div className="flex items-baseline gap-1 mt-2">
-          <span className="text-sm text-muted-foreground">Starting at</span>
-          <span className="text-2xl font-bold text-foreground">${price}</span>
-        </div>
-      </CardHeader>
-      <CardContent className="relative z-10">
-        <ul className="space-y-2.5">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <div className="mt-0.5 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
-                <Check className="w-3 h-3 text-success" />
-              </div>
-              <span className="text-sm text-muted-foreground">{feature}</span>
-            </li>
-          ))}
-          {optional && (
-            <li className="flex items-start gap-3 pt-1">
-              <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-3 h-3 text-accent" />
-              </div>
-              <span className="text-sm text-muted-foreground italic">{optional}</span>
-            </li>
-          )}
-        </ul>
-      </CardContent>
-    </Card>
+      <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card ${isPremium ? 'border-0' : ''}`}>
+        {/* Animated shine sweep for premium/advanced */}
+        {isPremium && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <motion.div
+              className="absolute -inset-[100%]"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+              }}
+              animate={{
+                x: ['0%', '200%'],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: 'linear',
+                repeatDelay: 1,
+              }}
+            />
+          </div>
+        )}
+
+        <CardHeader className="pb-4 relative z-10">
+          <div className="flex items-center justify-between mb-1">
+            <span className={`text-xs font-medium uppercase tracking-wider ${isPremium ? 'text-accent' : 'text-muted-foreground'}`}>
+              {tier}
+            </span>
+            {isAdvanced && (
+              <motion.div
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <Sparkles className="w-4 h-4 text-accent" />
+              </motion.div>
+            )}
+          </div>
+          <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
+          <div className="flex items-baseline gap-1 mt-2">
+            <span className="text-sm text-muted-foreground">Starting at</span>
+            <span className="text-2xl font-bold text-foreground">${price}</span>
+          </div>
+        </CardHeader>
+        <CardContent className="relative z-10">
+          <ul className="space-y-2.5">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <div className="mt-0.5 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-3 h-3 text-success" />
+                </div>
+                <span className="text-sm text-muted-foreground">{feature}</span>
+              </li>
+            ))}
+            {optional && (
+              <li className="flex items-start gap-3 pt-1">
+                <div className="mt-0.5 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-3 h-3 text-accent" />
+                </div>
+                <span className="text-sm text-muted-foreground italic">{optional}</span>
+              </li>
+            )}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 
@@ -72,6 +107,7 @@ export const Services = () => {
       title: "Basic Wash",
       tier: "Exterior Tier 1",
       price: "15",
+      tierLevel: 1,
       features: [
         "Hand wash",
         "Wheel and tire cleaning",
@@ -82,6 +118,7 @@ export const Services = () => {
       title: "Premium Detail",
       tier: "Exterior Tier 2",
       price: "25",
+      tierLevel: 2,
       features: [
         "Pre-wash",
         "Hand wash",
@@ -95,6 +132,7 @@ export const Services = () => {
       title: "Advanced Detail",
       tier: "Exterior Tier 3",
       price: "40",
+      tierLevel: 3,
       features: [
         "Pre-wash",
         "Hand wash",
@@ -113,6 +151,7 @@ export const Services = () => {
       title: "Basic Interior Refresh",
       tier: "Interior Tier 1",
       price: "15",
+      tierLevel: 1,
       features: [
         "Full interior vacuum",
         "Quick wipe down",
@@ -124,6 +163,7 @@ export const Services = () => {
       title: "Deep Interior Clean",
       tier: "Interior Tier 2",
       price: "35",
+      tierLevel: 2,
       features: [
         "Full interior vacuum",
         "Dash, console, door panels, and seat cleaning",
