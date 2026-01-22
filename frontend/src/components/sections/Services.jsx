@@ -5,28 +5,47 @@ import { FadeUp, StaggerContainer, StaggerItem } from '@/components/animations/A
 import { Check, Sparkles } from 'lucide-react';
 
 const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) => {
-  // tierLevel: 1 = basic (no effects), 2 = premium, 3 = advanced
+  // tierLevel: 1 = basic (no effects), 2 = premium (border only), 3 = advanced (border + shine + glow)
   const isPremium = tierLevel >= 2;
   const isAdvanced = tierLevel >= 3;
 
   return (
     <div className="relative">
-      {/* Animated gradient border for premium/advanced tiers */}
-      {isPremium && (
+      {/* Animated gradient border for premium tiers */}
+      {isPremium && !isAdvanced && (
         <div className="absolute -inset-[1px] rounded-xl overflow-hidden">
           <motion.div
             className="absolute inset-0"
             style={{
-              background: isAdvanced 
-                ? 'linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6)'
-                : 'linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6, #60a5fa)',
+              background: 'linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6, #60a5fa)',
               backgroundSize: '200% 100%',
             }}
             animate={{
               backgroundPosition: ['0% 0%', '200% 0%'],
             }}
             transition={{
-              duration: isAdvanced ? 2 : 3,
+              duration: 3,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </div>
+      )}
+
+      {/* Advanced tier - gold/purple animated border */}
+      {isAdvanced && (
+        <div className="absolute -inset-[2px] rounded-xl overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(90deg, #f59e0b, #8b5cf6, #3b82f6, #8b5cf6, #f59e0b)',
+              backgroundSize: '200% 100%',
+            }}
+            animate={{
+              backgroundPosition: ['0% 0%', '200% 0%'],
+            }}
+            transition={{
+              duration: 2,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -35,53 +54,95 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
       )}
 
       <Card className={`relative overflow-hidden transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 bg-card ${isPremium ? 'border-0' : ''}`}>
-        {/* Animated shine sweep for premium/advanced */}
-        {isPremium && (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <motion.div
-              className="absolute -inset-[100%]"
+        
+        {/* Minecraft enchantment shine - ONLY on Advanced (Tier 3) - always visible */}
+        {isAdvanced && (
+          <>
+            {/* Multiple diagonal shine lines */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                className="absolute w-[200%] h-[200%] -top-1/2 -left-1/2"
+                style={{
+                  background: `repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,255,255,0.03) 10px,
+                    rgba(255,255,255,0.03) 20px
+                  )`,
+                }}
+                animate={{
+                  x: ['-50%', '0%'],
+                  y: ['-50%', '0%'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              />
+            </div>
+            {/* Bright shine sweep */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                className="absolute h-full w-32"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+                }}
+                animate={{
+                  x: ['-128px', '400px'],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'linear',
+                  repeatDelay: 0.5,
+                }}
+              />
+            </div>
+            {/* Subtle glow overlay */}
+            <div 
+              className="absolute inset-0 pointer-events-none opacity-30"
               style={{
-                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
-              }}
-              animate={{
-                x: ['0%', '200%'],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: 'linear',
-                repeatDelay: 1,
+                background: 'radial-gradient(ellipse at top, rgba(139,92,246,0.15) 0%, transparent 60%)',
               }}
             />
-          </div>
+          </>
         )}
 
         <CardHeader className="pb-4 relative z-10">
           <div className="flex items-center justify-between mb-1">
-            <span className={`text-xs font-medium uppercase tracking-wider ${isPremium ? 'text-accent' : 'text-muted-foreground'}`}>
+            <span className={`text-xs font-medium uppercase tracking-wider ${
+              isAdvanced ? 'text-amber-500' : isPremium ? 'text-accent' : 'text-muted-foreground'
+            }`}>
               {tier}
             </span>
             {isAdvanced && (
               <motion.div
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                animate={{ 
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <Sparkles className="w-4 h-4 text-accent" />
+                <Sparkles className="w-4 h-4 text-amber-500" />
               </motion.div>
             )}
           </div>
           <CardTitle className="text-lg font-semibold text-foreground">{title}</CardTitle>
           <div className="flex items-baseline gap-1 mt-2">
             <span className="text-sm text-muted-foreground">Starting at</span>
-            <span className="text-2xl font-bold text-foreground">${price}</span>
+            <span className={`text-2xl font-bold ${isAdvanced ? 'text-foreground' : 'text-foreground'}`}>${price}</span>
           </div>
         </CardHeader>
         <CardContent className="relative z-10">
           <ul className="space-y-2.5">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start gap-3">
-                <div className="mt-0.5 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3 h-3 text-success" />
+                <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  isAdvanced ? 'bg-amber-500/10' : 'bg-success/10'
+                }`}>
+                  <Check className={`w-3 h-3 ${isAdvanced ? 'text-amber-500' : 'text-success'}`} />
                 </div>
                 <span className="text-sm text-muted-foreground">{feature}</span>
               </li>
