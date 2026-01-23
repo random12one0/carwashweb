@@ -14,28 +14,24 @@ export const Gallery = () => {
       alt: "Professional car detailing work"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/moauhmq5_o%20%285%29.jpg",
-      alt: "Auto cleaning service"
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/c_crop,g_north_west,h_2000,w_1017/tgjdbemprbwea9ucqsfw.jpg",
+      alt: "Side Of Car"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/3mnhi23w_o%20%284%29.jpg",
-      alt: "Interior detailing result"
-    },
-    {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/uweeggsh_o%20%283%29.jpg",
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136608/g32asfllpltecocn8gv7.jpg",
       alt: "Exterior detailing showcase"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/bujs7k30_o%20%282%29.jpg",
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136607/kwpb03mbdwulf7lcqwsd.jpg",
       alt: "Professional wash result"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/52ma35jq_o%20%281%29.jpg",
-      alt: "Car detailing showcase"
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136375/hpsyzavwc78ydhdjkgoy.jpg",
+      alt: "My Products"
     },
     {
-      src: "https://customer-assets.emergentagent.com/job_auto-detail-pro-6/artifacts/e9ft2k2l_IMG_3644%20%282%29.jpeg",
-      alt: "Interior cleaning result"
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136377/cb22af5selvasj0t2ex0.jpg",
+      alt: "My Products"
     }
   ];
 

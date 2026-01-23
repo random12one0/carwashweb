@@ -169,7 +169,7 @@ export const Services = () => {
       tierLevel: 1,
       features: [
         "Hand wash",
-        "Wheel and tire cleaning",
+        "Light Wheel and tire cleaning",
         "Exterior window cleaning"
       ]
     },
@@ -181,7 +181,7 @@ export const Services = () => {
       features: [
         "Pre-wash",
         "Hand wash",
-        "Wheel and tire cleaning",
+        "Deep Wheel and tire cleaning",
         "Tire shine",
         "Trim enhancement",
         "Exterior window cleaning"
@@ -200,7 +200,7 @@ export const Services = () => {
         "Trim enhancement",
         "Exterior window cleaning",
         "Headlight clearing",
-        "Exterior protection with hydrophobic finish"
+        "1 Month Exterior protection with hydrophobic finish"
       ]
     }
   ];
