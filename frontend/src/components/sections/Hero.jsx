@@ -30,11 +30,11 @@ export const Hero = () => {
       {/* Background - solid black with image overlay */}
       <div className="absolute inset-0 bg-black">
         <motion.img
-          src="https://images.pexels.com/photos/6872577/pexels-photo-6872577.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136375/hpsyzavwc78ydhdjkgoy.jpg"
           alt="Professional car detailing"
           className="w-full h-full object-cover"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
+          animate={{ opacity: 0.35 }}
           transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
         />
       </div>
