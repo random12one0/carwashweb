@@ -244,6 +244,7 @@ export const Services = () => {
         "Stain treatment",
         "Floor mat cleaning",
         "Interior window cleaning",
+        "Door Jam cleaning",
         "Trash removal"
       ],
       optional: "Optional interior scent add-on"
