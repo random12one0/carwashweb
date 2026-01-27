@@ -30,6 +30,14 @@ export const Gallery = () => {
       alt: "My Products"
     },
     {
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769557980/qmoljsotbjxocy7j5dhe.jpg",
+      alt: "Detaild Van"
+    },
+    {
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769557980/uarmnmycwdzvkqe613xj.jpg",
+      alt: "Interior Van"
+    },
+    {
       src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136377/cb22af5selvasj0t2ex0.jpg",
       alt: "My Products"
     }
