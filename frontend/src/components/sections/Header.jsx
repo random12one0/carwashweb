@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Star } from 'lucide-react';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,6 +9,10 @@ export const Header = () => {
 
   const openBooking = () => {
     window.open('https://tally.so/r/3y5Dgg', '_blank');
+  };
+
+  const openYelp = () => {
+    window.open('https://www.yelp.com/biz/andrews-car-washing-lakewood-3', '_blank');
   };
 
   useEffect(() => {
@@ -55,7 +59,7 @@ export const Header = () => {
               transition={{ duration: 0.2 }}
             >
               <span className="font-semibold text-lg tracking-tight text-white">
-                Andrew&apos;s Car Wash & Detail
+                Andrew&apos;s Car Wash &amp; Detail
               </span>
             </motion.div>
 
@@ -65,19 +69,27 @@ export const Header = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                    isScrolled 
-                      ? 'text-white/80 hover:text-white hover:bg-white/10' 
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
+                  className="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-white/80 hover:text-white hover:bg-white/10"
                 >
                   {link.label}
                 </button>
               ))}
             </nav>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* CTA Buttons */}
+            <div className="hidden md:flex items-center gap-3">
+              {/* Yelp Button */}
+              <Button 
+                variant="outline"
+                size="default"
+                onClick={openYelp}
+                className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white bg-transparent"
+              >
+                <Star className="w-4 h-4 mr-1 fill-current" />
+                Yelp
+              </Button>
+              
+              {/* Book Now Button */}
               <Button 
                 variant={isScrolled ? "accent" : "hero"}
                 size="default"
@@ -118,7 +130,19 @@ export const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <div className="pt-2">
+              <div className="pt-2 flex flex-col gap-2">
+                {/* Mobile Yelp Button */}
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white bg-transparent"
+                  onClick={openYelp}
+                >
+                  <Star className="w-4 h-4 mr-2 fill-current" />
+                  View on Yelp
+                </Button>
+                
+                {/* Mobile Book Button */}
                 <Button 
                   variant="accent"
                   size="lg"
