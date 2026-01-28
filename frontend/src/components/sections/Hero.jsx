@@ -1,33 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, MapPin, Clock } from 'lucide-react';
 
 export const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    // Check if screen is mobile
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Track scroll for collapsed hero (optional)
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToServices = () => {
     const element = document.getElementById('services');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToFAQ = () => {
-    const element = document.getElementById('faq');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToBook = () => {
     const element = document.getElementById('book');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const openYelp = () =>
+    window.open('https://www.yelp.com/biz/andrews-car-washing-lakewood-3', '_blank');
+  const openGoogle = () =>
+    window.open('https://g.page/r/CY27nt5XVIuBEAI/review', '_blank');
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background - solid black with image overlay */}
+      {/* Background */}
       <div className="absolute inset-0 bg-black">
         <motion.img
           src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136375/hpsyzavwc78ydhdjkgoy.jpg"
@@ -35,90 +48,102 @@ export const Hero = () => {
           className="w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.35 }}
-          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 1.2 }}
         />
       </div>
 
-      {/* Content with fade-in animation */}
-      <motion.div 
-        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-      >
+      {/* Content */}
+      <motion.div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
+          {/* Location + Mobile Reviews */}
+          <motion.div
+            className="flex items-center gap-3 mb-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <MapPin className="w-4 h-4 text-accent" />
-            <span className="text-sm text-white/90 font-medium">Lakewood, California</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span className="text-sm text-white/90 font-medium">Lakewood, California</span>
+            </div>
+
+            {/* Only show Yelp + Google on mobile */}
+            {isMobile && !isScrolled && (
+              <>
+                <button
+                  onClick={openYelp}
+                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 hover:scale-105"
+                >
+                  <img
+                    src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769583720/qc1on8u4i9ocjxkr10ke.png"
+                    alt="Yelp"
+                    className="w-6 h-6 object-contain"
+                  />
+                </button>
+                <button
+                  onClick={openGoogle}
+                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 hover:scale-105"
+                >
+                  <img
+                    src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769583651/llra5ue5osfindmvrce2.png"
+                    alt="Google"
+                    className="w-6 h-6 object-contain"
+                  />
+                </button>
+              </>
+            )}
           </motion.div>
 
           {/* Main Headline */}
-          <motion.h1 
+          <motion.h1
             className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             Mobile Car Wash
             <br />
-            <span className="text-white/90">&amp; Interior Cleaning</span>
+            <span className="text-white/90">&amp; Interior Detailing</span>
           </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p 
-            className="text-lg sm:text-xl text-white/80 leading-relaxed mb-4 max-w-xl"
+          {/* Updated Subheadline */}
+          <motion.p
+            className="text-lg sm:text-xl text-white/80 leading-relaxed mb-6 max-w-xl"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Affordable, honest detailing services brought directly to your location. 
-            Quality results without the dealership prices.
+            Mobile auto detailing you can trust. High-quality results at fair, transparent prices.
           </motion.p>
 
           {/* Note */}
-          <motion.div 
-            className="flex items-center gap-2 text-white/60 text-sm mb-10"
+          <motion.div
+            className="flex items-center gap-2 text-white/60 text-sm mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, delay: 0.45 }}
           >
             <Clock className="w-4 h-4" />
             <span>Mobile services require access to water and electricity</span>
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <Button 
-              variant="hero" 
+          <motion.div className="flex flex-col sm:flex-row gap-4 justify-start mt-2">
+            <Button
+              variant="hero"
               size="xl"
+              className="w-full sm:w-auto"
               onClick={scrollToBook}
             >
               Book Appointment
             </Button>
-            <Button 
-              variant="hero-outline" 
+            <Button
+              variant="hero-outline"
               size="xl"
+              className="w-full sm:w-auto"
               onClick={scrollToServices}
             >
               View Services
-            </Button>
-            <Button 
-              variant="hero-outline" 
-              size="xl"
-              onClick={scrollToFAQ}
-            >
-              FAQ
             </Button>
           </motion.div>
         </div>
@@ -127,12 +152,6 @@ export const Hero = () => {
       {/* Scroll Indicator */}
       <motion.button
         onClick={scrollToServices}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ 
-          opacity: { duration: 0.5, delay: 1 },
-          y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }
-        }}
         className="absolute bottom-8 inset-x-0 mx-auto w-fit flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors duration-300"
       >
         <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
