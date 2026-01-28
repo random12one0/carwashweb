@@ -5,22 +5,13 @@ import { ArrowDown, MapPin, Clock } from 'lucide-react';
 
 export const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Check if screen is mobile
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Track scroll for collapsed hero (optional)
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const scrollToServices = () => {
@@ -55,9 +46,9 @@ export const Hero = () => {
       {/* Content */}
       <motion.div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
         <div className="max-w-3xl">
-          {/* Location + Mobile Reviews */}
+          {/* Location + Reviews */}
           <motion.div
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-8 flex-wrap sm:flex-nowrap"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -67,22 +58,22 @@ export const Hero = () => {
               <span className="text-sm text-white/90 font-medium">Lakewood, California</span>
             </div>
 
-            {/* Only show Yelp + Google on mobile */}
-            {isMobile && !isScrolled && (
-              <>
+            {/* Yelp + Google buttons always visible on mobile */}
+            {isMobile && (
+              <div className="flex gap-2">
                 <button
                   onClick={openYelp}
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 hover:scale-105"
+                  className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-transform duration-200 hover:scale-105"
                 >
                   <img
                     src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769583720/qc1on8u4i9ocjxkr10ke.png"
                     alt="Yelp"
-                    className="w-6 h-6 object-contain"
+                    className="w-6 h-6 object-contain filter brightness-125"
                   />
                 </button>
                 <button
                   onClick={openGoogle}
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 hover:scale-105"
+                  className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-transform duration-200 hover:scale-105"
                 >
                   <img
                     src="https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769583651/llra5ue5osfindmvrce2.png"
@@ -90,7 +81,7 @@ export const Hero = () => {
                     className="w-6 h-6 object-contain"
                   />
                 </button>
-              </>
+              </div>
             )}
           </motion.div>
 
@@ -106,7 +97,7 @@ export const Hero = () => {
             <span className="text-white/90">&amp; Interior Detailing</span>
           </motion.h1>
 
-          {/* Updated Subheadline */}
+          {/* Subheadline */}
           <motion.p
             className="text-lg sm:text-xl text-white/80 leading-relaxed mb-6 max-w-xl"
             initial={{ opacity: 0, y: 10 }}
