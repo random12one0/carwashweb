@@ -165,41 +165,41 @@ export const Services = () => {
     {
       title: "Standard Exterior Wash",
       tier: "Exterior Tier 1",
-      price: "15",
+      price: "20",
       tierLevel: 1,
       features: [
         "Hand wash",
         "Light Wheel and tire cleaning",
+        "Tire shine",
         "Exterior window cleaning"
       ]
     },
     {
       title: "Deluxe Exterior Detail",
       tier: "Exterior Tier 2",
-      price: "25",
+      price: "35",
       tierLevel: 2,
       features: [
         "Pre-wash",
         "Hand wash",
         "Deep Wheel and tire cleaning",
         "Tire shine",
-        "Trim enhancement",
         "Exterior window cleaning"
       ]
     },
     {
       title: "Ultimate Exterior Detail",
       tier: "Exterior Tier 3",
-      price: "40",
+      price: "50",
       tierLevel: 3,
       features: [
         "Pre-wash",
         "Hand wash",
-        "Wheel and tire cleaning",
+        "Deep Wheel and tire cleaning",
         "Tire shine",
         "Trim enhancement",
         "Exterior window cleaning",
-        "Headlight clearing",
+        "Headlight Brightening",
         "1 Month Exterior protection with hydrophobic finish"
       ]
     }
@@ -209,7 +209,7 @@ export const Services = () => {
     {
       title: "Standard Interior Clean",
       tier: "Interior Tier 1",
-      price: "15",
+      price: "20",
       tierLevel: 1,
       features: [
         "Full interior vacuum",
@@ -221,7 +221,7 @@ export const Services = () => {
     {
       title: "Deluxe Interior Clean",
       tier: "Interior Tier 2",
-      price: "30",
+      price: "40",
       tierLevel: 2,
       features: [
         "Full interior vacuum",
@@ -235,7 +235,7 @@ export const Services = () => {
     {
       title: "Ultimate Interior Clean",
       tier: "Interior Tier 3",
-      price: "50",
+      price: "60",
       tierLevel: 3,
       features: [
         "Full interior vacuum",
