@@ -14,7 +14,7 @@ export const BookCTA = () => {
   ];
 
   const openBooking = () => {
-    window.open('https://tally.so/r/3y5Dgg', '_blank');
+    window.open('https://andrewsauto.setmore.com', '_blank');
   };
 
   return (
