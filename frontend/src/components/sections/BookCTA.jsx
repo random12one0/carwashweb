@@ -14,7 +14,7 @@ export const BookCTA = () => {
   ];
 
   const openBooking = () => {
-    window.open('https://andrewsauto.setmore.com', '_blank');
+    window.open('https://andrewsauto.setmore.com/book', '_blank');
   };
 
   return (

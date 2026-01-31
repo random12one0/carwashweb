@@ -10,7 +10,7 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // External links
-  const openBooking = () => window.open('https://andrewsauto.setmore.com', '_blank');
+  const openBooking = () => window.open('https://andrewsauto.setmore.com/book', '_blank');
   const openYelp = () => window.open('https://www.yelp.com/biz/andrews-car-washing-lakewood-3', '_blank');
   const openGoogle = () => window.open('https://g.page/r/CY27nt5XVIuBEAI/review', '_blank');
 
