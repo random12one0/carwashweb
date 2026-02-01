@@ -163,7 +163,7 @@ const ServiceCard = ({ title, tier, price, features, optional, tierLevel = 1 }) 
 export const Services = () => {
   const exteriorServices = [
     {
-      title: "Standard Exterior Wash",
+      title: "Standard Exterior Detail",
       tier: "Exterior Tier 1",
       price: "20",
       tierLevel: 1,
