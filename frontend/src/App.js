@@ -6,7 +6,6 @@ import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import ServiceOptions from "@/components/sections/ServiceOptions";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Gallery from "@/components/sections/Gallery";
 import FAQ from "@/components/sections/FAQ";
 import BookCTA from "@/components/sections/BookCTA";
@@ -20,7 +19,6 @@ const HomePage = () => {
         <Hero />
         <Services />
         <ServiceOptions />
-        <WhyChooseUs />
         <Gallery />
         <FAQ />
         <BookCTA />
