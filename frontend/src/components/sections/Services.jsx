@@ -170,8 +170,7 @@ export const Services = () => {
       features: [
         "Hand wash",
         "Light Wheel and tire cleaning",
-        "Tire shine",
-        "Exterior window cleaning"
+        "Tire shine"
       ]
     },
     {
@@ -184,7 +183,7 @@ export const Services = () => {
         "Hand wash",
         "Deep Wheel and tire cleaning",
         "Tire shine",
-        "Exterior window cleaning"
+        "Window cleaning"
       ]
     },
     {
@@ -197,8 +196,8 @@ export const Services = () => {
         "Hand wash",
         "Deep Wheel and tire cleaning",
         "Tire shine",
+        "Window cleaning",
         "Trim enhancement",
-        "Exterior window cleaning",
         "Headlight Brightening",
         "1 Month Exterior protection with hydrophobic finish"
       ]
@@ -226,9 +225,9 @@ export const Services = () => {
       features: [
         "Full interior vacuum",
         "Light interior touch-up cleaning",
-        "Floor mat cleaning",
-        "Interior window cleaning",
-        "Trash removal"
+        "Trash removal",
+        "Floor mat cleaning"
+
       ],
       optional: "Optional interior scent add-on"
     },
@@ -240,12 +239,11 @@ export const Services = () => {
       features: [
         "Full interior vacuum",
         "Deep cleaning of dash, console, door panels, and seats",
+        "Trash removal",
+        "Floor mat cleaning",
         "Carpet and upholstery cleaning",
         "Stain treatment",
-        "Floor mat cleaning",
-        "Interior window cleaning",
-        "Door Jam cleaning",
-        "Trash removal"
+        "Door Jam cleaning"
       ],
       optional: "Optional interior scent add-on"
     }

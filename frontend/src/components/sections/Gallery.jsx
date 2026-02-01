@@ -38,6 +38,14 @@ export const Gallery = () => {
       alt: "Interior Van"
     },
     {
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769913655/afii8pz3g6thbb6noimd.jpg",
+      alt: "Interior car"
+    },
+    {
+      src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769913655/q7q9itr7t8kca4dcrcld.jpg",
+      alt: "Interior car"
+    },
+    {
       src: "https://res.cloudinary.com/dxxs3qvdn/image/upload/v1769136377/cb22af5selvasj0t2ex0.jpg",
       alt: "My Products"
     }
